@@ -1,0 +1,130 @@
+﻿@model CrudProduto.Models.ViewModels.ProdutoViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Produtos</h2>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Novo Produto</a>
+</p>
+<form asp-action="Consultar">
+    <div class="row">
+        <div class="col-2">
+            <div class="form-group">
+                <label asp-for="produtoConsulta.codigo" class="control-label"></label>
+                <input asp-for="produtoConsulta.codigo" class="form-control" />
+                <span asp-validation-for="produtoConsulta.codigo" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                <label asp-for="produtoConsulta.nome" class="control-label"></label>
+                <input asp-for="produtoConsulta.nome" class="form-control" />
+                <span asp-validation-for="produtoConsulta.nome" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                <label asp-for="produtoConsulta.valorCompra" class="control-label"></label>
+                <input asp-for="produtoConsulta.valorCompra" class="form-control" />
+                <span asp-validation-for="produtoConsulta.valorCompra" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                <label asp-for="produtoConsulta.quantidade" class="control-label"></label>
+                <input asp-for="produtoConsulta.quantidade" class="form-control" />
+                <span asp-validation-for="produtoConsulta.quantidade" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                <label asp-for="produtoConsulta.dataCompra" class="control-label"></label>
+                <input asp-for="produtoConsulta.dataCompra" class="form-control" />
+                <span asp-validation-for="produtoConsulta.dataCompra" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                <label asp-for="produtoConsulta.comprador" class="control-label"></label>
+                <input asp-for="produtoConsulta.comprador" class="form-control" />
+                <span asp-validation-for="produtoConsulta.comprador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="produtoConsulta.status" /> @Html.DisplayNameFor(model => model.produtoConsulta.status)
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <input type="submit" value="Filtrar" class="btn btn-primary"/>
+        </div>
+    </div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+</form>
+<br><br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.produto.codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.produto.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.produto.valorCompra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.produto.dataCompra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.produto.quantidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.produto.comprador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.produto.status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.listaProd) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.valorCompra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dataCompra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.comprador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Editar" asp-route-id="@item.id">Editar</a> |
+                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.id">Detalhes</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,41 @@
+﻿@model CrudProduto.Models.ViewModels.LinhaViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Nova</h2>
+
+<h4>Linha de Produtos</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                *<label asp-for="linha.nome" class="control-label"></label>
+                <input asp-for="linha.nome" class="form-control" />
+                <span asp-validation-for="linha.nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Itens com '*' são obrigatórios</label>
+            </div>
+            <hr />Usuário
+            <div class="form-group">
+                 <b><label asp-for="usuario.nome" class="control-label"></label></b>
+                <input asp-for="usuario.nome" class="form-control" />
+                <span asp-validation-for="usuario.nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Concluído" class="btn btn-primary" />
+            </div>
+            <div>
+                <a asp-action="Index" class="btn btn-primary">Voltar </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

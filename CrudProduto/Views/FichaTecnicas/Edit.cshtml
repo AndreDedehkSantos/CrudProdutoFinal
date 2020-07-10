@@ -1,0 +1,73 @@
+﻿@model CrudProduto.Models.ViewModels.FichaViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Editar</h2>
+
+<h4>FichaTecnica</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                *<label asp-for="ficha.descricao" class="control-label"></label>
+                <input asp-for="ficha.descricao" class="form-control" />
+                <span asp-validation-for="ficha.descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                *<label asp-for="ficha.componenteBasico" class="control-label"></label>
+                <input asp-for="ficha.componenteBasico" class="form-control" />
+                <span asp-validation-for="ficha.componenteBasico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                *<label asp-for="ficha.componentePrimario" class="control-label"></label>
+                <input asp-for="ficha.componentePrimario" class="form-control" />
+                <span asp-validation-for="ficha.componentePrimario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                *<label asp-for="ficha.componenteSecundario" class="control-label"></label>
+                <input asp-for="ficha.componenteSecundario" class="form-control" />
+                <span asp-validation-for="ficha.componenteSecundario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                *<label asp-for="ficha.categoria" class="control-label"></label>
+                <input asp-for="ficha.categoria" class="form-control" />
+                <span asp-validation-for="ficha.categoria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                *<label asp-for="ficha.subCategoria" class="control-label"></label>
+                <input asp-for="ficha.subCategoria" class="form-control" />
+                <span asp-validation-for="ficha.subCategoria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ficha.observacoes" class="control-label"></label>
+                <input asp-for="ficha.observacoes" class="form-control" />
+                <span asp-validation-for="ficha.observacoes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Itens com '*' são obrigatórios</label>
+            </div>
+            <hr />Usuário
+            <div class="form-group">
+                 <b><label asp-for="usuario.nome" class="control-label"></label></b>
+                <input asp-for="usuario.nome" class="form-control" />
+                <span asp-validation-for="usuario.nome" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="ficha.id" />
+            <div class="form-group">
+                <input type="submit" value="Concluído" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-primary" asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

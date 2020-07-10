@@ -1,0 +1,68 @@
+﻿@model IEnumerable<CrudProduto.Models.Produto>
+
+@{
+    ViewData["Title"] = "Index2";
+}
+
+<h2>Resultado</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.valorCompra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dataCompra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.quantidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comprador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.valorCompra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dataCompra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.comprador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Editar" asp-route-id="@item.id">Editar</a> |
+                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.id">Detalhes</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+    </table>

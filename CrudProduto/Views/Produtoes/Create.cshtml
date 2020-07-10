@@ -1,0 +1,106 @@
+﻿@model CrudProduto.Models.ViewModels.ProdutoViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Novo</h2>
+
+<h4>Produto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                *<label asp-for="produto.linhaProdutoid" class="control-label"></label>
+                <select asp-for="produto.linhaProdutoid" asp-items="@(new SelectList(Model.lp,"id","nome"))" class="form-control"></select>
+            </div><div class="form-group">
+                *<label asp-for="produto.codigo" class="control-label"></label>
+                <input asp-for="produto.codigo" class="form-control" />
+                <span asp-validation-for="produto.codigo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                *<label asp-for="produto.nome" class="control-label"></label>
+                <input asp-for="produto.nome" class="form-control" />
+                <span asp-validation-for="produto.nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                *<label asp-for="produto.valorCompra" class="control-label"></label>
+                <input asp-for="produto.valorCompra" class="form-control" />
+                <span asp-validation-for="produto.valorCompra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                *<label asp-for="produto.dataCompra" class="control-label"></label>
+                <input asp-for="produto.dataCompra" class="form-control" />
+                <span asp-validation-for="produto.dataCompra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                *<label asp-for="produto.quantidade" class="control-label"></label>
+                <input asp-for="produto.quantidade" class="form-control" />
+                <span asp-validation-for="produto.quantidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                *<label asp-for="produto.comprador" class="control-label"></label>
+                <input asp-for="produto.comprador" class="form-control" />
+                <span asp-validation-for="produto.comprador" class="text-danger"></span>
+            </div>
+            <hr />
+            <b><label>Ficha Técncica</label></b>
+            <div class="form-group">
+                *<label asp-for="produto.fichaTecnica.descricao" class="control-label"></label>
+                <input asp-for="produto.fichaTecnica.descricao" class="form-control" />
+                <span asp-validation-for="produto.fichaTecnica.descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                *<label asp-for="produto.fichaTecnica.componenteBasico" class="control-label"></label>
+                <input asp-for="produto.fichaTecnica.componenteBasico" class="form-control" />
+                <span asp-validation-for="produto.fichaTecnica.componenteBasico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                *<label asp-for="produto.fichaTecnica.componentePrimario" class="control-label"></label>
+                <input asp-for="produto.fichaTecnica.componentePrimario" class="form-control" />
+                <span asp-validation-for="produto.fichaTecnica.componentePrimario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                *<label asp-for="produto.fichaTecnica.componenteSecundario" class="control-label"></label>
+                <input asp-for="produto.fichaTecnica.componenteSecundario" class="form-control" />
+                <span asp-validation-for="produto.fichaTecnica.componenteSecundario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                *<label asp-for="produto.fichaTecnica.categoria" class="control-label"></label>
+                <input asp-for="produto.fichaTecnica.categoria" class="form-control" />
+                <span asp-validation-for="produto.fichaTecnica.categoria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                *<label asp-for="produto.fichaTecnica.subCategoria" class="control-label"></label>
+                <input asp-for="produto.fichaTecnica.subCategoria" class="form-control" />
+                <span asp-validation-for="produto.fichaTecnica.subCategoria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="produto.fichaTecnica.observacoes" class="control-label"></label>
+                <input asp-for="produto.fichaTecnica.observacoes" class="form-control" />
+                <span asp-validation-for="produto.fichaTecnica.observacoes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Itens com '*' são obrigatórios</label>
+            </div>
+            <hr />Usuário
+            <div class="form-group">
+                <b><label asp-for="usuario.nome" class="control-label"></label></b>
+                <input asp-for="usuario.nome" class="form-control" />
+                <span asp-validation-for="usuario.nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Concluído" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,12 @@
+﻿@model IEnumerable<string>
+
+<h2>Erro de Validação - Novo Produto</h2>
+<div>
+    @foreach (string item in Model)
+    {
+        <p>@Html.DisplayFor(modelItem => item)</p>
+    }
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Create">Voltar</a>
+</div>

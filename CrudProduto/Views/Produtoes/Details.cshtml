@@ -1,0 +1,130 @@
+﻿@model CrudProduto.Models.ViewModels.ProdutoViewModel
+
+@{
+    ViewData["Title"] = "Details";<dl class="dl-horizontal"></dl>
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Produto</h4>
+    <hr />
+    <h5>Linha do Produto</h5>
+
+    <dl class="dl-horizontal">
+        <dd>
+            @Html.DisplayFor(model => model.linha.nome)
+        </dd>
+    </dl>
+    <hr />
+    <h5>Acessórios Básicos</h5>
+    <table>
+        <tbody>
+            @foreach (var item in Model.acessoriosB)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nome)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <hr />
+    <h5>Produto</h5>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.produto.nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.produto.nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.produto.valorCompra)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.produto.valorCompra)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.produto.dataCompra)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.produto.dataCompra)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.produto.quantidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.produto.quantidade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.produto.comprador)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.produto.comprador)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.produto.status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.produto.status)
+        </dd>
+    </dl>
+    <hr />
+    <h5>Ficha Técnica</h5>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.produto.fichaTecnica.descricao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.produto.fichaTecnica.descricao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.produto.fichaTecnica.componenteBasico)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.produto.fichaTecnica.componenteBasico)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.produto.fichaTecnica.componentePrimario)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.produto.fichaTecnica.componentePrimario)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.produto.fichaTecnica.componenteSecundario)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.produto.fichaTecnica.componenteSecundario)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.produto.fichaTecnica.categoria)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.produto.fichaTecnica.categoria)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.produto.fichaTecnica.subCategoria)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.produto.fichaTecnica.subCategoria)
+        </dd>
+    </dl>
+    <h5>Acessórios Opicionais</h5>
+    <table>
+        <tbody>
+            @foreach (var item in Model.acessoriosO)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nome)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Editar" asp-route-id="@Model.produto.id">Editar</a>
+    <a class="btn btn-primary" asp-action="Index">Voltar</a>
+</div>
